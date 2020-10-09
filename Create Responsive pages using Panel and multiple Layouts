@@ -1,0 +1,258 @@
+package CombineLayouts;
+
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+public class RegistrationFomr2 {
+	
+	Frame mainFrame;
+	Panel mainPanel;
+	
+	
+
+	public static void main(String[] args) 
+	{
+	
+		RegistrationFomr2  r1=new RegistrationFomr2();
+		
+		r1.MyFrame();
+		r1.getLagel();
+		r1.MyRegistrationForm();
+		r1.getgender();
+
+	}
+	
+	
+	
+	public void MyFrame()
+	{
+		mainFrame=new Frame();
+		
+		mainFrame.setVisible(true);
+		mainFrame.setSize(500, 500);
+		
+		mainFrame.addWindowListener(new WindowAdapter() {
+			
+			public void windowClosing(WindowEvent e)
+			{
+				System.exit(0);
+			}
+			
+		});
+		
+		mainFrame.setTitle("Registration Form");
+		mainPanel=new Panel();
+		mainFrame.add(mainPanel);
+		mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,1000,10));
+		mainPanel.setBackground(Color.yellow);
+		
+	}
+	
+	public void getLagel()
+	{
+		Panel p1=new Panel();
+		p1.setLayout(new FlowLayout());
+		
+		Label l1=new Label("Registration Form");
+		Font f1=new Font("times new Roman",Font.BOLD,30);
+		l1.setFont(f1);
+		
+		l1.setForeground(Color.blue);
+		p1.add(l1);
+		
+		mainPanel.add(p1);
+		
+	}
+	
+	
+	public void MyMsg(String msg)
+	{
+		
+		Dialog d1=new Dialog(mainFrame,"Registration Status");
+		
+		Label l1=new Label(msg);
+		l1.setForeground(Color.red);
+		
+		
+		Button b1=new Button("OK");
+		b1.setBackground(Color.green);
+		
+		d1.setVisible(true);
+		d1.setSize(200, 100);
+		d1.setLocation(200, 200);
+		d1.setBackground(Color.blue);
+		d1.setLayout(new FlowLayout());
+		
+		
+		d1.add(l1);
+		d1.add(b1);
+		 b1.addActionListener(new ActionListener()
+				 {
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						d1.setVisible(false);
+					}
+			 
+				 });
+		
+		
+		
+	}
+	
+	public void getgender()
+	{
+		
+		Label l1,l2;
+		
+		Panel p1=new Panel();
+		GridLayout grid=new  GridLayout(3,3);
+		p1.setLayout(grid);
+		grid.setVgap(50);
+		grid.setHgap(50);
+		
+		Checkbox male,female,h1,h2,h3;
+		
+		
+		l1=new Label("User Gender:");
+		l2=new Label("User Hobbies");
+
+		CheckboxGroup cg=new CheckboxGroup();
+		male=new Checkbox("male",cg,true);
+		female=new Checkbox("female",cg,false);
+		
+		h1=new Checkbox("reading");
+		h2=new Checkbox("Programming");
+		
+		p1.add(l1);
+		p1.add(male);
+		p1.add(female);
+		
+		
+		p1.add(l2);
+		p1.add(h1);
+		p1.add(h2);
+		
+		Button b1=new Button("Submit");
+		Button b2=new Button("Cancle");
+		p1.add(b1);
+		p1.add(b2);
+		
+		b1.addActionListener(new ActionListener()
+				{
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						MyMsg("user Register sucsessfully...");
+						
+					}
+			
+				});
+		
+		b2.addActionListener(new ActionListener()
+		{
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				MyMsg("User Not Registered.....");
+				
+			}
+	
+		});
+		mainPanel.add(p1);
+		
+	}
+	
+	
+	
+	public void MyRegistrationForm()
+	{
+		
+		//label				textfield
+		
+		Panel p1=new Panel();
+		
+		GridLayout grid=new GridLayout(8,2);
+		
+		grid.setVgap(10);
+		grid.setHgap(10);
+		
+		p1.setLayout(grid);
+		
+		
+		Label l1,l2,l3,l4,l6,l7,l8,l10;
+		TextField id,name,email,phone,dob,address;
+		
+		Choice clgname,dept;
+		
+		//id,name,email,phone,gender,address,clg name,dept,hobbies,dob;
+		l1=new Label("User Id:");
+		l2=new Label("User Name:");
+		l3=new Label("User Email:");
+		l4=new Label("User Phone:");
+		
+		l6=new Label("User Address:");
+		l7=new Label("User Collage Name:");
+		l8=new Label("User Dept:");
+		
+		l10=new Label("User DOB:");
+		
+		id=new TextField(20);
+		name=new TextField(20);
+		email=new TextField(20);
+		phone=new TextField(20);
+		dob=new TextField(20);
+		address=new TextField(20);
+		
+		
+		
+		clgname=new Choice();
+		clgname.add("Zeal College of Engineering");
+		clgname.add("JSPM");
+		clgname.add("Modern College Of Engineering");
+		
+		
+		dept=new Choice();
+		dept.add("Computer");
+		dept.add("Mech");
+		dept.add("ENTC");
+		
+		//id,name,email,phone,gender,address,clg name,dept,hobbies,dob;
+		
+		p1.add(l1);
+		p1.add(id);
+		
+		
+		p1.add(l2);
+		p1.add(name);
+		
+		p1.add(l3);
+		p1.add(email);
+		
+		p1.add(l4);
+		p1.add(phone);
+		
+		p1.add(l6);
+		p1.add(address);
+		
+		p1.add(l7);
+		p1.add(clgname);
+		
+		p1.add(l8);
+		p1.add(dept);
+		
+		p1.add(l10);
+		p1.add(dob);
+		
+		
+		mainPanel.add(p1);
+	}
+	
+	
+	
+	
+
+}
