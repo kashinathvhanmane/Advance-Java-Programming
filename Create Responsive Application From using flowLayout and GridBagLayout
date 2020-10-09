@@ -1,0 +1,337 @@
+package CombineLayouts;
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+public class StudentApplicationForm {
+	
+	
+	Frame mainFrame;
+	Panel mainPanel;
+	
+	public static void main(String  args[])
+	{
+		StudentApplicationForm s1=new StudentApplicationForm();
+		s1.MyFrame();
+		s1.PersonalDetails();
+	}
+	
+	public void MyFrame()
+	{
+		mainFrame =new Frame();
+		
+		mainFrame.setVisible(true);
+		mainFrame.setSize(600, 600);
+		
+		mainFrame.addWindowListener(new WindowAdapter() {
+			public void windowClosing(WindowEvent e)
+			{
+				System.exit(0);
+			}
+		});
+		
+		mainFrame.setTitle("Application Form");
+		
+		
+		mainPanel=new Panel();
+		Label l1=new Label("ASCII EDUCATION");
+		Font f1=new Font("Times New Roman",Font.BOLD,50);
+		l1.setFont(f1);
+		l1.setForeground(Color.red);
+		mainPanel.add(l1);
+		mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,10,100));
+		mainPanel.setBackground(Color.yellow);
+		mainFrame.add(mainPanel);
+	}
+	public void PersonalDetails()
+	{
+		Panel p1=new Panel();
+		GridBagLayout gb=new GridBagLayout();
+		
+		GridBagConstraints c1=new GridBagConstraints();
+		
+		
+		p1.setLayout(gb);
+		
+		c1.insets=new Insets(5,5,5,5);
+		
+		
+		
+		Label mylabel,name,address,gender,email,phone,dob;
+		TextField myname,myaddress,mygender,myemail,myphone,mydob;
+		
+		mylabel=new Label("Personal Information...");
+		Font f1=new Font("times new Roman",Font.BOLD,20);
+		mylabel.setFont(f1);
+		mylabel.setForeground(Color.blue);
+		
+		c1.gridx=0;
+		c1.gridy=0;
+		
+		
+		gb.setConstraints(mylabel,c1);
+		p1.add(mylabel);
+		
+		
+		name=new Label("Student Name");
+		c1.gridx=1;
+		c1.gridy=1;
+		gb.setConstraints(name,c1);
+		
+		
+		
+		myname=new TextField(20);
+		c1.gridx=2;
+		c1.gridy=1;
+		gb.setConstraints(myname,c1);
+		
+		p1.add(name);
+		p1.add(myname);
+		
+		
+		
+		
+		address=new Label("Student Address");
+		c1.gridx=3;
+		c1.gridy=1;
+		gb.setConstraints(address,c1);
+		
+		
+		myaddress=new TextField(20);
+		c1.gridx=4;
+		c1.gridy=1;
+		gb.setConstraints(myaddress,c1);
+		
+		p1.add(address);
+		p1.add(myaddress);
+		
+		
+		
+		
+		gender=new Label("Student Gender");
+		c1.gridx=5;
+		c1.gridy=1;
+		gb.setConstraints(gender,c1);
+		
+		
+		CheckboxGroup cg=new CheckboxGroup();
+		
+		Checkbox male=new Checkbox("Male",cg,true);
+		c1.gridx=6;
+		c1.gridy=1;
+		gb.setConstraints(male,c1);
+		
+		Checkbox female=new Checkbox("Female",cg,false);
+		
+		c1.gridx=7;
+		c1.gridy=1;
+		
+		gb.setConstraints(female, c1);
+		p1.add(gender);
+		p1.add(male);
+		p1.add(female);
+		
+		
+		
+		
+		
+		
+		email=new Label("Student Email");
+		c1.gridx=1;
+		c1.gridy=2;
+		gb.setConstraints(email,c1);
+		
+		
+		myemail=new TextField(20);
+		c1.gridx=2;
+		c1.gridy=2;
+		gb.setConstraints(myemail,c1);
+		
+		p1.add(email);
+		p1.add(myemail);
+		
+		
+		
+		phone=new Label("Student Phone");
+		c1.gridx=3;
+		c1.gridy=2;
+		gb.setConstraints(phone,c1);
+		
+		
+		myphone=new TextField(20);
+		c1.gridx=4;
+		c1.gridy=2;
+		gb.setConstraints(myphone,c1);
+		
+		p1.add(phone);
+		p1.add(myphone);
+		
+		
+		
+		dob=new Label("Student DOB");
+		c1.gridx=5;
+		c1.gridy=2;
+		gb.setConstraints(dob,c1);
+		
+		
+		mydob=new TextField(20);
+		c1.gridx=6;
+		c1.gridy=2;
+		gb.setConstraints(mydob,c1);
+		
+		p1.add(dob);
+		p1.add(mydob);
+		
+		
+		
+		//Education Details
+		
+		Label c_course,tenth,pass,dept,favsub,year;
+		TextField mytenth;
+		Choice myc_course,mypass,mydept,myfavsub,myyear;
+		
+		mylabel=new Label("Educational Information...");
+		Font f2=new Font("times new Roman",Font.BOLD,20);
+		mylabel.setFont(f2);
+		mylabel.setForeground(Color.blue);
+		
+		c1.gridx=0;
+		c1.gridy=4;
+		
+		
+		gb.setConstraints(mylabel,c1);
+		p1.add(mylabel);
+		
+		
+		c_course=new Label("select Course");
+		c1.gridx=1;
+		c1.gridy=5;
+		gb.setConstraints(c_course,c1);
+		
+		
+		
+		myc_course=new Choice();
+		myc_course.add("Python");
+		myc_course.add("Advance Java");
+		myc_course.add("Android");
+		c1.gridx=2;
+		c1.gridy=5;
+		gb.setConstraints(myc_course,c1);
+		
+		p1.add(c_course);
+		p1.add(myc_course);
+		
+		
+		
+		
+		tenth=new Label("Enter 10th Marks");
+		c1.gridx=3;
+		c1.gridy=5;
+		gb.setConstraints(tenth,c1);
+		
+	
+		mytenth=new TextField(20);
+		c1.gridx=4;
+		c1.gridy=5;
+		gb.setConstraints(mytenth,c1);
+		
+		p1.add(tenth);
+		p1.add(mytenth);
+		
+		//pass,dept,favsub,year;
+		
+		
+		pass=new Label("Result");
+		c1.gridx=5;
+		c1.gridy=5;
+		gb.setConstraints(pass,c1);
+		
+		mypass=new Choice();
+		mypass.add("Pass");
+		mypass.add("Fail");
+		mypass.add("ATKT");
+		c1.gridx=6;
+		c1.gridy=5;
+		gb.setConstraints(mypass, c1);
+		p1.add(pass);
+		p1.add(mypass);
+		
+		
+		
+		
+		
+		
+		//favsub,year;
+		
+		dept=new Label("Select Dept");
+		c1.gridx=1;
+		c1.gridy=6;
+		gb.setConstraints(dept,c1);
+		
+		
+		mydept=new Choice();
+		mydept.add("Computer");
+		mydept.add("Mechanical");
+		mydept.add("ENTC");
+		mydept.add("Electrical");
+		c1.gridx=2;
+		c1.gridy=6;
+		gb.setConstraints(mydept,c1);
+		
+		p1.add(dept);
+		p1.add(mydept);
+		
+		
+		
+		
+		
+		favsub=new Label("Select Favorite Subject");
+		c1.gridx=3;
+		c1.gridy=6;
+		gb.setConstraints(favsub,c1);
+		
+		
+		myfavsub=new Choice();
+		myfavsub.add("Advance Java");
+		myfavsub.add("Python");
+		myfavsub.add("Core Java");
+		c1.gridx=4;
+		c1.gridy=6;
+		gb.setConstraints(myfavsub,c1);
+		
+		p1.add(favsub);
+		p1.add(myfavsub);
+		
+		//year;
+		
+		year=new Label("Select year");
+		c1.gridx=5;
+		c1.gridy=6;
+		gb.setConstraints(year,c1);
+		
+		
+		myyear=new Choice();
+		myyear.add("First year");
+		myyear.add("Second Year");
+		myyear.add("Third Year");
+		myyear.add("Last Year");
+		c1.gridx=6;
+		c1.gridy=6;
+		gb.setConstraints(myyear,c1);
+		
+		p1.add(year);
+		p1.add(myyear);
+		
+		
+		p1.setBackground(Color.white);
+		
+		
+		
+		
+		mainPanel.add(p1);
+		
+		
+		
+		
+	}
+
+}
