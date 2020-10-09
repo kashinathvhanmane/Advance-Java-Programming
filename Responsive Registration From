@@ -1,0 +1,205 @@
+package CombineLayouts;
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+public class RegistrationForm {
+
+	
+	Frame mainFrame;
+	Panel mainPanel;
+	
+	public static void main(String args[])
+	{
+		RegistrationForm r1=new RegistrationForm();
+		r1.RegistrationForm1();
+		r1.MayLabel();
+		r1.MyForm();
+		r1.SubmitButton();
+		
+	}
+	
+	
+	public void RegistrationForm1()
+	{
+		
+		mainFrame=new Frame();
+		
+		mainFrame.setVisible(true);
+		mainFrame.setSize(600, 600);
+		
+		mainFrame.addWindowListener(new WindowAdapter()
+				{
+					public void windowClosing(WindowEvent e)
+					{
+						System.exit(0);
+						
+					}
+				});
+		
+		
+		mainPanel=new Panel();
+		mainPanel.setBackground(Color.cyan);
+		
+		mainPanel.setLayout(new FlowLayout(FlowLayout.CENTER,1000,50));
+		
+		mainFrame.add(mainPanel);
+		
+	}
+	
+	public void MayLabel()
+	{
+		Panel p1=new Panel();
+		
+		p1.setLayout(new FlowLayout());
+		
+		Label l1=new Label();
+		Font f1=new Font("Times New Roman",Font.BOLD,24);
+		l1.setFont(f1);
+		l1.setText("Registration");
+		l1.setForeground(Color.MAGENTA);
+		
+		
+		p1.add(l1);
+		mainPanel.add(p1);
+		
+	}
+	
+	
+	public void MyForm()
+	{
+		Panel p1=new Panel();
+		
+		GridLayout grid=new GridLayout(5,3);
+		grid.setVgap(50);
+		
+		
+		p1.setLayout(grid);
+		
+		Label l1,l2,l3,l4,l5;
+		TextField t1,t2,t4;
+		Choice c3,c5;
+		
+		l1=new Label("User Name:");
+		l2=new Label("User Email:");
+		l3=new Label("User State:");
+		l4=new Label("User Phone:");
+		l5=new Label("User Subject:");
+		
+		
+		t1=new TextField(20);
+		
+		
+		t2=new TextField(20);
+		
+		
+		t4=new TextField(20);
+	
+		
+		
+		c3=new Choice();
+		c3.addItem("Maharastra");
+		c3.addItem("Karnataka");
+		c3.addItem("Gujrat");
+		
+		
+		
+		c5=new Choice();
+		c5.addItem("Marathi");
+		c5.addItem("Kannada");
+		c5.addItem("Gujrati");
+		
+		
+		p1.add(l1);
+		p1.add(t1);
+		
+		p1.add(l2);
+		p1.add(t2);
+		
+		
+		p1.add(l3);
+		p1.add(c3);
+		
+		p1.add(l4);
+		p1.add(t4);
+		
+		p1.add(l5);
+		p1.add(c5);
+		
+		p1.setSize(400, 400);
+		
+		
+		mainPanel.add(p1);
+		
+
+		
+	}
+	
+	
+	
+	public void SubmitButton()
+	{
+		Panel p1=new Panel();
+		p1.setLayout(new FlowLayout());
+		
+		Button btn1=new Button("Submit");
+		
+		p1.add(btn1);
+		
+		btn1.addActionListener(new ActionListener()
+				{
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						// TODO Auto-generated method stub
+						RegistrationForm r1=new RegistrationForm();
+						r1.Mymsg();
+						
+					}
+			
+		});
+		
+		mainPanel.add(p1);
+	}
+	
+	
+	public void Mymsg() 
+	{
+		Frame p1=new Frame();
+		Dialog d=new Dialog(p1);
+		d.setTitle("Registration Satus");
+		
+		d.setLayout(new FlowLayout());
+		d.setSize(300, 150);
+		d.setLocation(150, 300);
+		d.setBackground(Color.blue);
+		
+		Label l1=new Label();
+		Font f1=new Font("Times new Roman",Font.BOLD,15);
+		l1.setFont(f1);
+		l1.setText("user Registration Successfully...");
+		l1.setForeground(Color.green);
+		d.add(l1);
+		
+		
+		
+		d.setVisible(true);
+		Button b1=new Button("ok");
+		b1.setBackground(Color.red);
+		d.add(b1);
+		
+		b1.addActionListener(new ActionListener()
+				{
+
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						d.setVisible(false);
+					}
+				}
+			);
+			
+		}
+		
+	}
+
