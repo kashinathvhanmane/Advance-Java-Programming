@@ -1,0 +1,284 @@
+package LayoutManagers;
+
+
+
+import java.awt.*;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+public class Calculatorprg {
+
+	Frame mainframe;
+	Panel controlPanel;
+	
+	public static void main(String args[])
+	
+
+	{
+		Calculatorprg cal=new Calculatorprg();
+		cal.MyTextBox();
+		cal.MyCalButton();
+		
+	}
+	public void MyTextBox()
+	{
+		Panel p=new Panel();
+		GridBagLayout grid= new GridBagLayout();
+	    GridBagConstraints c1=new GridBagConstraints();
+	    c1.gridx=0;
+	    c1.gridy=0;
+	    c1.ipadx=180;
+	    c1.ipady=35;
+	    
+		TextField t1=new TextField();
+		grid.setConstraints(t1,c1);
+		
+		p.add(t1);
+		p.setLayout(grid);
+		controlPanel.add(p);
+	}
+	public Calculatorprg()
+	{
+		 mainframe=new Frame();
+		 mainframe.setSize(600,600);
+		 mainframe.setVisible(true);
+		 mainframe.setTitle("Calculator");
+		
+		 mainframe.addWindowListener(new WindowAdapter()
+		{
+			public void windowClosing(WindowEvent e)
+			{
+				System.exit(0);
+			}
+		});
+		 
+		 controlPanel=new Panel();
+		 controlPanel.setLayout(new FlowLayout(FlowLayout.CENTER,1000,20));
+		 controlPanel.setBackground(Color.cyan);
+		 mainframe.add(controlPanel);
+		
+	}
+	
+	public void MyCalButton()
+	{
+	    
+	    Panel p=new Panel();
+	  
+	 	GridBagLayout grid= new GridBagLayout();
+	    GridBagConstraints c1=new GridBagConstraints();
+	 
+	    
+	    
+	    c1.insets = new Insets(1,1,1,1);
+	    
+	    
+	    
+	    Button  b1=new Button ("7");
+	    c1.gridx=1;
+	    c1.gridy=1;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b1, c1);
+	    p.add(b1);
+	    p.setLayout(grid);
+
+	    Button  b2=new Button ("8");
+	    c1.gridx=2;
+	    c1.gridy=1;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b2, c1);
+	    p.add(b2);
+	    p.setLayout(grid);
+	    
+	    Button  b3=new Button ("9");
+
+	    c1.gridx=3;
+	    c1.gridy=1;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b3, c1);
+	    p.add(b3);
+	    p.setLayout(grid);
+	    
+	    Button  b4=new Button ("/");
+	    c1.gridx=4;
+	    c1.gridy=1;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b4, c1);
+	    p.add(b4);
+	    p.setLayout(grid);
+	    
+	    Button  b5=new Button ("4");
+	    c1.gridx=1;
+	    c1.gridy=2;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b5, c1);
+	    p.add(b5);
+	    p.setLayout(grid);
+	    
+	    Button  b6=new Button ("5");
+	    c1.gridx=2;
+	    c1.gridy=2;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b6, c1);
+	    p.add(b6);
+	    p.setLayout(grid);
+	    
+
+	    Button  b7=new Button ("6");
+	    c1.gridx=3;
+	    c1.gridy=2
+	    		;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b7, c1);
+	    p.add(b7);
+	    p.setLayout(grid);
+	    
+	    Button  b8=new Button ("*");
+	    c1.gridx=4;
+	    c1.gridy=2;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b8, c1);
+	    p.add(b8);
+	    p.setLayout(grid);
+	    
+	    Button  b9=new Button ("1");
+	    c1.gridx=1;
+	    c1.gridy=3;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b9, c1);
+	    p.add(b9);
+	    
+	    Button  b10=new Button ("2");
+	    c1.gridx=2;
+	    c1.gridy=3;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b10, c1);
+	    p.add(b10);
+	    p.setLayout(grid);
+	    
+	    Button  b11=new Button ("3");
+	    c1.gridx=3;
+	    c1.gridy=3;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b11, c1);
+	    p.add(b11);
+	    p.setLayout(grid);
+
+	    Button  b12=new Button ("+");
+	    c1.gridx=4;
+	    c1.gridy=3;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b12, c1);
+	    p.add(b12);
+	    p.setLayout(grid);
+	    
+	    
+	    Button  b13=new Button ("0");
+	    c1.gridx=1;
+	    c1.gridy=4;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b13, c1);
+	    p.add(b13);
+	    p.setLayout(grid);
+	    
+	    Button  b14=new Button (".");
+	    c1.gridx=2;
+	    c1.gridy=4;
+	    
+	    c1.ipadx= 30;
+	    c1.ipady= 20;
+	    grid.setConstraints(b14, c1);
+	    p.add(b14);
+	    p.setLayout(grid);
+	    
+	    Button  b15=new Button ("C");
+	    c1.gridx=3;
+	    c1.gridy=4;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+
+	    b15.setBackground(Color.red);
+	    b15.setForeground(Color.white);
+	    grid.setConstraints(b15, c1);
+	    p.add(b15);
+	    
+	    Button  b16=new Button ("-");
+	    c1.gridx=4;
+	    c1.gridy=4;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+	    grid.setConstraints(b16, c1);
+	    p.add(b16);
+	    
+	    Button  b17=new Button ("sin");
+	    c1.gridx=1;
+	    c1.gridy=5;
+	    
+	    c1.ipadx= 17;
+	    c1.ipady= 20;
+	    grid.setConstraints(b17, c1);
+	    p.add(b17);
+	    p.setLayout(grid);
+        
+	    Button  b18=new Button ("cos");
+	    c1.gridx=2;
+	    c1.gridy=5;
+	    
+	    c1.ipadx= 17;
+	    c1.ipady= 20;
+	    grid.setConstraints(b18, c1);
+	    p.add(b18);
+	    p.setLayout(grid);
+        
+	    Button  b19=new Button ("tan");
+	    c1.gridx=3;
+	    c1.gridy=5;
+	    
+	    c1.ipadx= 17;
+	    c1.ipady= 20;
+	    grid.setConstraints(b19, c1);
+	    p.add(b19);
+	    p.setLayout(grid);
+	    
+	    Button  b20=new Button ("=");
+	    c1.gridx=4;
+	    c1.gridy=5;
+	    
+	    c1.ipadx= 25;
+	    c1.ipady= 20;
+
+	    b20.setBackground(Color.green);
+	    b20.setForeground(Color.white);
+	    grid.setConstraints(b20, c1);
+	    p.add(b20);
+	    p.setLayout(grid);
+	    controlPanel.add(p);
+
+	}
+}
