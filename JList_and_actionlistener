@@ -1,0 +1,126 @@
+package SwingPackage;
+
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.event.*;
+import javax.swing.*;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+public class MyDemoWork {
+	
+	
+	public static void main(String args[])
+	{
+		mydemo m1=new mydemo();
+		m1.myframedemo();
+		
+	}
+
+}
+
+
+
+
+
+
+
+class mydemo implements ActionListener
+{
+	JFrame f1;
+	JList l1;
+	JButton b1;
+	
+	public void myframedemo()
+	{
+		
+		f1=new JFrame();
+		f1.setLayout(null);
+		f1.setSize(500,500);
+		f1.setVisible(true);
+		
+		String mydata[]= {"A","B","C"};
+		
+		l1=new JList(mydata);
+		
+		l1.setBounds(200,200,300,80);
+		b1=new JButton("click");
+		
+		
+		f1.add(l1);
+		b1.setBounds(300,400,100,50);
+		b1.addActionListener(this);
+		f1.add(b1);
+		
+		
+		
+		
+	}
+
+	@Override
+	public void actionPerformed(ActionEvent e) 
+	{
+		
+	
+		
+		JPanel p1=new JPanel();
+
+		p1.setBounds(500,200,200,200);
+
+		f1.add(p1);
+		JLabel l2=new JLabel("it may panel");
+		p1.add(l2);
+		
+		
+		
+		
+		
+		
+		String comp0[]= {"Editors for C","Turbo C","Notepad","Notepad ++","VS code","Sublime Text"};
+		
+		String comp1[]= {"Editors for C++","Turbo C++","Notepad","Notepad ++","VS code","Sublime Text"};
+		
+		String comp2[]= {"Editors for Java","Eclipse IDE","Notepad","Notepad ++","VS code","NetBeans"};
+		
+		
+		JList list0;
+		
+		
+		
+		if(l1.getSelectedIndex()==0)
+		{
+			
+			list0 =new JList(comp0);
+			
+			l2.setText("First index");
+			
+			p1.add(list0);
+			
+			p1.setBackground(Color.blue);
+			
+			
+		}
+		if(l1.getSelectedIndex()==1)
+		{
+			list0 =new JList(comp1);
+			
+			l2.setText("Second index");
+			p1.add(list0);
+			p1.setBackground(Color.black);
+			
+			
+			
+			
+		}
+		
+		if(l1.getSelectedIndex()==2)
+		{
+			list0 =new JList(comp2);
+			
+			l2.setText("Third index");
+			p1.add(list0);
+			p1.setBackground(Color.green);
+		}
+		
+	}
+}
